@@ -1,0 +1,100 @@
+
+
+The Rubrics for On The Map is satisfied by implementing features as follow:
+
+ ****** LOGIN VIEW **********
+
+-- The has a login page which uses Udacity Login and Facebook login for Authentication
+
+-- The login activity is displayed by Custom Activity Indicator view.
+
+-- If the login is failed, it notifies the user by follwoing way:
+   - A custom Message view is created and is used to show validations, incorrect credentials  and data loading and parsing error.
+   - A custom Erro View is created and used to show speciafically Connection related messages.
+
+-- The app has networking code in following classes:
+
+  - Client.swift - A general class for GET, POST and PUT methods for PARSE and UDACITY API.
+  - UdacityConvenience.swift -  A class which creates request to UDACITY API for login and getting user data.
+  - ParseConvenience.swift - A class which creates request to PARSE API to Get, post and update (POST) students locations information to PARSE API
+
+  All of these classes uses CompletionHandler as a Closure to return data to update model, to return error to update UI and model classes.
+
+-- App posts the data in json body string for all post requests. On successful completion, UI is updated.
+
+
+****** STUDENT LOCATIONS TABBED VIEW **********
+
+-- The app downloads most recent 100 locations using limit parameter in Parse API by GET request. If locations are more than 100 then app first displays most recent 100 locations and then contiune fetching other requests.
+
+Reference:  http://discussions.udacity.com/t/batched-request-for-locations-data/18368
+
+-- StudentInformation Struct has all the properties to save the data downloaded from the Parse API and initialisers to convert data from dictionary to Struct object.
+-- StudentInformation Struct has init method which takes dictionary as argument and creates the object of the struct.
+-- The array of this struct is saved in Model class.
+
+-- App dislays network error and download error separately as described in login view
+
+-- App displays download data Maps Tab, List tab and search tab.
+
+-- Search tab search the data based on First name, last name, location or Udacity Id (Uniquekey) (This is case sensitive search)
+
+-- Maps tab shows all the maps for the downloaded data, when pin is tapped it displays student's name and URL. When annotaion is tapped, it opens the URL is safari (default browser)
+
+-- The List tab shows all the data in the table view, with user's name. When row is selcted, link for that student is opened in defualt browser.
+
+-- App shows Add Posting and Refresh button in the navigation. Add posting button opens the PostInformationViewController modally and Refresh button reload data in Maps and List Controller.
+
+-- App also has additional Logout button to log out from Udacity and Facebook.
+
+
+****** INFORMATION POSTING VIEW **********
+
+-- If user has already posted data, app tells the user that the data (location and link) will be updated.
+
+-- This view asks the user to enter location (where he/she is studying).
+
+-- Once user enters the location, app does geocoding to find the coordinates of the location. A completion block stores this data with user's information.
+--  The  geocoding activity indicator is displayed to the user by Custom ActivityIndicator View. (As descirbed in login view, which changes trasparence / alpha value of parent view).
+- App displays message if location (geocoding errro) is not found.
+
+-- Once the geocoding os over, the map is displayed with user's location on the map using pin annotation. The app zooms to this place by setting its region.
+-- This view allows the user to enter the link. User can check their link before posting. Invalid URL is conveyed to user by custommessage view.
+
+Reference: http://discussions.udacity.com/t/clarification-on-mechanism-to-browse-the-link/18745
+
+
+-- The post button will post the data and user's data is added/updated on map and list view.
+
+
+
+Technical References:
+
+http://www.raywenderlich.com/30288/nsregularexpression-tutorial-and-cheat-sheet
+http://stackoverflow.com/questions/1471201/how-to-validate-an-url-on-the-iphone
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
