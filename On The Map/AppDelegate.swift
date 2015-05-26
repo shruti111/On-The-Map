@@ -57,11 +57,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func configureUI() {
-      //  UITabBar.appearance().barTintColor = barcolors
+     
          UIApplication.sharedApplication().statusBarStyle = .LightContent
         UITabBar.appearance().tintColor = UIColor(red: 232/255, green: 111/255, blue: 26/255, alpha: 1)
-        
-        //UITabBar.appearance().tintColor = UIColor.orangeColor()
     }
 
 

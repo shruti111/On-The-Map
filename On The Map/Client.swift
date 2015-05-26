@@ -176,8 +176,7 @@ class Client : NSObject {
         
         return task
     }
-    
-
+ 
     /* Helper: method to return Network error */
     
     class func errorForNetworkConnection(error:NSError) -> NSError {

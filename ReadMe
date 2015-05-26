@@ -45,7 +45,7 @@ Reference:  http://discussions.udacity.com/t/batched-request-for-locations-data/
 
 -- App shows Add Posting and Refresh button in the navigation. Add posting button opens the PostInformationViewController modally and Refresh button reload data in Maps and List Controller.
 
--- App also has additional Logout button to log out from Udacity and Facebook.
+-- App also has additional Logout button to log out from Facebook. Logout method for Udacity is not documented in Rubrics document.
 
 
 ****** INFORMATION POSTING VIEW **********

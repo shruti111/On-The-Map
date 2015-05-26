@@ -102,14 +102,15 @@ class OnTheMapTabbarViewController: UITabBarController {
             FBSDKAccessToken.setCurrentAccessToken(nil)
         }
         
-                 Client.sharedInstance().sessionID  = nil
+        // Logout method from Udacity is not provided in Rubrics.
+        
+                Client.sharedInstance().sessionID  = nil
                 Client.sharedInstance().userID  = nil
                 Client.sharedInstance().userInformation = nil
                 Client.sharedInstance().studentLocations = nil
 
         dismissViewControllerAnimated(true, completion: nil)
-        
-        
+                
     }
     
     //Helper method to show Network error
